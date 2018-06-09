@@ -1,0 +1,21 @@
+.image {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to right, black, transparent), url('/assets/background.png');
+    background-size: cover;
+    padding: 10%;
+    color: #e9ebf0;
+    font-family: Arial, "Helvetica Neue", Helvetica, Roboto, sans-serif;
+    h1 {
+        font-size: 3em;
+    }
+    p {
+        margin: 2% 40% 20% 0;
+        font-size: 1.2em;
+        line-height: 1.5em;
+    }
+}
+
+.content {
+    height: 400px;
+}
