@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroComponent implements OnInit {
 
-  constructor() { }
+  public goalHorizonYearOptions: Array<number>;
+
+  constructor() {
+    const nextYear = (new Date()).getFullYear() + 1;
+    this.goalHorizonYearOptions = Array.from({ length: 50 }, (x, y) => y + nextYear);
+  }
 
   ngOnInit() {
   }
