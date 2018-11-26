@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule,
   MatDatepickerModule,
   MatFormFieldModule,
@@ -9,11 +10,14 @@ import { MatButtonModule,
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { IntroRoutingModule } from './intro-routing.module';
 import { IntroComponent } from './intro.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     IntroRoutingModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -24,7 +28,9 @@ import { IntroComponent } from './intro.component';
     CurrencyMaskModule
   ],
   declarations: [
-    IntroComponent
+    IntroComponent,
+    ThankYouComponent,
+    QuestionsComponent
   ]
 })
 export class IntroModule { }
