@@ -1,4 +1,4 @@
-.image {
+::ng-deep .image {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to right, black, transparent), url('/assets/background.png');
@@ -24,7 +24,7 @@
     }
 }
 
-.questions-container {
+::ng-deep .questions-container {
     display: flex;
     flex-direction: column;
     height: 1200px;

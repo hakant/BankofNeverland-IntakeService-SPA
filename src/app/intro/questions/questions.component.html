@@ -1,3 +1,94 @@
-<p>
-  questions works!
-</p>
+<app-intro>
+  <div class="highlights">
+    <h1>Welcome to the Bank of Neverland</h1>
+    <p>
+      Hopefully the name of the bank gives you a clear indication that nothing you see here is real! In order to become
+      a customer of this fictive bank, you have to answer a few questions.
+    </p>
+    <a href="./intro/questions#questions" class="intro-button" mat-raised-button>Start!</a>
+  </div>
+  <div class="content">
+    <form [formGroup]="intakeForm" (ngSubmit)="onSubmit()">
+      <div id="questions" class='questions-container'>
+        <div class="question-container">
+          <div class="question-content">
+            <h3>What is your name?</h3>
+            <mat-form-field>
+              <input matInput placeholder="Firstname" formControlName="firstName" required autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Lastname" formControlName="lastName" required autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="question-container">
+          <div class="question-content">
+            <h3>What is your birthdate?</h3>
+            <mat-form-field class="field-long">
+              <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthDate" required
+                autocomplete="off">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="question-container">
+          <div class="question-content">
+            <h3>How much money do you want to invest?</h3>
+            <mat-form-field class="field-long">
+              <input matInput currencyMask placeholder="Enter deposit amount (€)" [options]="{ prefix: '€', thousands: '.', decimal: ',', align: 'left', allowNegative: false, precision: 0 }"
+                formControlName="initialDeposit" required autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="question-container">
+          <div class="question-content">
+            <h3>What is your investment horizon and goal?</h3>
+            <mat-form-field>
+              <mat-select placeholder="Month" formControlName="horizonMonth" required autocomplete="off">
+                <mat-option value="January">January</mat-option>
+                <mat-option value="February">February</mat-option>
+                <mat-option value="March">March</mat-option>
+                <mat-option value="April">April</mat-option>
+                <mat-option value="May">May</mat-option>
+                <mat-option value="June">June</mat-option>
+                <mat-option value="July">July</mat-option>
+                <mat-option value="August">August</mat-option>
+                <mat-option value="September">September</mat-option>
+                <mat-option value="October">October</mat-option>
+                <mat-option value="November">November</mat-option>
+                <mat-option value="December">December</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Year" formControlName="horizonYear" required>
+                <mat-option *ngFor="let year of goalHorizonYearOptions" value="{{year}}">{{year}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br />
+            <mat-form-field class="field-long">
+              <input matInput currencyMask placeholder="Enter your investment goal (€)" [options]="{ prefix: '€', thousands: '.', decimal: ',', align: 'left', allowNegative: false, precision: 0 }"
+                formControlName="goalAmount" required autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="question-container">
+          <div class="question-content">
+            <h3>How much risk are you willing to take?</h3>
+            <mat-form-field class="field-long">
+              <mat-select placeholder="Select your investment risk profile" 
+                formControlName="investmentProfile" required>
+                <mat-option value="Defensive">Defensive</mat-option>
+                <mat-option value="Medium">Medium</mat-option>
+                <mat-option value="Offensive">Offensive</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="actions">
+          <button mat-raised-button color="primary" class="start-button" [disabled]="!intakeForm.valid">Start!</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</app-intro>

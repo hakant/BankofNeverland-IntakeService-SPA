@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { IntroComponent } from './intro.component';
 import { ThankYouComponent } from './thank-you/thank-you.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 export const routes: Routes = [
     {
-        path: '',
-        component: IntroComponent
+        path: 'questions',
+        component: QuestionsComponent
     },
     {
-        path: 'thank-you',
+        path: 'thankyou',
         component: ThankYouComponent
+    },
+    {
+        path: '',
+        redirectTo: 'questions',
     }
 ];
 
