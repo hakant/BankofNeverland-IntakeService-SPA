@@ -1,0 +1,12 @@
+.progress-bar {
+    position: fixed;
+    top: 0;
+}
+
+::ng-deep .mat-snack-bar-container {
+    color: #ffffffff;
+    background: #d23262;
+    .mat-simple-snackbar-action {
+        color: #ffffffff;
+    }
+}

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 import { IntakeService } from '../shared/intake.service';
+import { catchError, finalize, filter, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-questions',
@@ -9,8 +12,9 @@ import { IntakeService } from '../shared/intake.service';
   styleUrls: ['./questions.component.scss'],
   providers: [IntakeService]
 })
-export class QuestionsComponent implements OnInit {
+export class QuestionsComponent {
 
+  public postIntakeInProgress = false;
   public goalHorizonYearOptions: Array<number>;
   intakeForm = this.fb.group({
     firstName: ['', Validators.required],
@@ -27,6 +31,7 @@ export class QuestionsComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private snackBar: MatSnackBar,
     private intakeService: IntakeService
   ) {
     const nextYear = (new Date()).getFullYear() + 1;
@@ -36,18 +41,30 @@ export class QuestionsComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-
-  }
-
   onSubmit() {
+    this.postIntakeInProgress = true;
     this.intakeService
-      .send(this.intakeForm.value)
-      .subscribe();
-
-    this.router.navigate(
-      ['thankyou'],
-      { relativeTo: this.activatedRoute.parent }
-    );
+      .postIntake(this.intakeForm.value)
+      .pipe(
+        catchError(() => {
+          this.snackBar.open(
+            'Something went wrong. Seems like we can\'t save your data at the moment. ' +
+            'Sorry for the inconvenience. Please check your internet connection and try again.',
+            'Dismiss', {
+              verticalPosition: 'top',
+              politeness: 'assertive',
+              panelClass: 'snackbar'
+            });
+          return of(null);
+        }),
+        filter(res => res !== null),
+        finalize(() => this.postIntakeInProgress = false)
+      )
+      .subscribe(() => {
+        this.router.navigate(
+          ['thankyou'],
+          { relativeTo: this.activatedRoute.parent }
+        );
+      });
   }
 }

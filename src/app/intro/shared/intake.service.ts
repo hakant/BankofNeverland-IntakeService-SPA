@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { delay, map, tap, mergeMap } from 'rxjs/operators';
+import { throwError, of } from 'rxjs';
 
 @Injectable()
 export class IntakeService {
 
   constructor(private http: HttpClient) { }
 
-  send(payLoad: any) {
-    return this.http.post('api/intakes', payLoad)
-      .pipe(
-        catchError(err => of(console.log(err)))
-      );
+  postIntake(intakePayLoad: any) {
+    // Fire the call after 3 seconds to simulate running operation and progress bar
+    // demo purposes only.
+    return of({}).pipe(
+      delay(3000),
+      mergeMap(() => this.http.post('api/intakes', intakePayLoad))
+    );
   }
 }

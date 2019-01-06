@@ -2,12 +2,14 @@
   <div class="highlights">
     <h1>Welcome to the Bank of Neverland</h1>
     <p>
-      Hopefully the name of the bank gives you a clear indication that everything you see here is fake! 
+      Hopefully the name of the bank gives you a clear indication that everything you see here is fake!
       In order to become a customer of this fictive bank, you have to answer a few questions.
     </p>
     <a href="./intro/questions#questions" class="intro-button" mat-raised-button>Start!</a>
   </div>
   <div class="content">
+    <mat-progress-bar *ngIf="postIntakeInProgress" class="progress-bar" color="primary" mode="indeterminate">
+    </mat-progress-bar>
     <form [formGroup]="intakeForm" (ngSubmit)="onSubmit()">
       <div id="questions" class='questions-container'>
         <div class="question-container">
@@ -76,8 +78,8 @@
           <div class="question-content">
             <h3>How much risk are you willing to take?</h3>
             <mat-form-field class="field-long">
-              <mat-select placeholder="Select your investment risk profile" 
-                formControlName="investmentProfile" required>
+              <mat-select placeholder="Select your investment risk profile" formControlName="investmentProfile"
+                required>
                 <mat-option value="Defensive">Defensive</mat-option>
                 <mat-option value="Medium">Medium</mat-option>
                 <mat-option value="Offensive">Offensive</mat-option>

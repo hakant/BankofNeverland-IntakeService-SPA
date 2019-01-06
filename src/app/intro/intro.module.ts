@@ -7,7 +7,9 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatNativeDateModule,
-  MatSelectModule
+  MatSelectModule,
+  MatProgressBarModule,
+  MatSnackBarModule
 } from '@angular/material';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { IntroRoutingModule } from './intro-routing.module';
@@ -27,7 +29,9 @@ import { QuestionsComponent } from './questions/questions.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    MatProgressBarModule,
+    MatSnackBarModule
   ],
   declarations: [
     IntroComponent,
