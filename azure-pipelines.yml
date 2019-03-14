@@ -21,12 +21,6 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-- task: CopyFiles@2
-  inputs:
-    contents: '**\*'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: IntakeService-SPA
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
