@@ -28,4 +28,4 @@ steps:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'IntakeService-SPA' 
     publishLocation: 'filepath'
-    targetPath: ''
+    targetPath: 'IntakeServiceSPA'
