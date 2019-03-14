@@ -21,11 +21,7 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-# Publish Build Artifacts
-# Publish build artifacts to Azure Pipelines/TFS or a file share
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'IntakeService-SPA' 
-    publishLocation: 'filepath'
-    targetPath: 'IntakeServiceSPA'
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
