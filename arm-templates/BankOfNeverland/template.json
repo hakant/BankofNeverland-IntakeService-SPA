@@ -3,19 +3,15 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serverfarms_WestEurope_S1_name": {
-            "defaultValue": "WestEurope-S1",
             "type": "String"
         },
         "sites_bon_intakeservicespa_name": {
-            "defaultValue": "bon-intakeservicespa",
             "type": "String"
         },
         "components_bon_intakeservicespa_name": {
-            "defaultValue": "bon-intakeservicespa",
             "type": "String"
         },
         "alertrules_Failure_Anomalies___bon_intakeservicespa_name": {
-            "defaultValue": "Failure Anomalies - bon-intakeservicespa",
             "type": "String"
         }
     },
