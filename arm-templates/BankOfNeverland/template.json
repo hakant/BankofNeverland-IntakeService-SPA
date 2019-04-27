@@ -57,9 +57,7 @@
             "dependsOn": [
                 "[resourceId('microsoft.insights/components', parameters('components_bon_intakeservicespa_name'))]"
             ],
-            "tags": {
-                "hidden-link:/subscriptions/4310f53c-5cb0-4350-a83f-21a569e5a3fe/resourceGroups/BankOfNeverland/providers/microsoft.insights/components/bon-intakeservicespa": "Resource"
-            },
+            "tags": {},
             "properties": {
                 "name": "[parameters('alertrules_Failure_Anomalies___bon_intakeservicespa_name')]",
                 "description": "",
@@ -205,26 +203,6 @@
                 "minTlsVersion": "1.2",
                 "ftpsState": "AllAllowed",
                 "reservedInstanceCount": 0
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/deployments",
-            "apiVersion": "2016-08-01",
-            "name": "[concat(parameters('sites_bon_intakeservicespa_name'), '/321555941163086')]",
-            "location": "West Europe",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_bon_intakeservicespa_name'))]"
-            ],
-            "properties": {
-                "id": "321555941163086",
-                "status": 4,
-                "author_email": "",
-                "author": "GitHub",
-                "deployer": "VSTS",
-                "message": "{\"type\":\"Deployment\",\"commitId\":\"81d1629934502d71482ec6eaca8fa2b09bffeb9b\",\"buildId\":\"35\",\"releaseId\":\"32\",\"buildNumber\":\"20190324.1\",\"releaseName\":\"Release-13\",\"repoProvider\":\"GitHub\",\"collectionUrl\":\"https://dev.azure.com/hakantuncer/\",\"teamProject\":\"4c1f12e6-ac7b-498c-8ebd-1c1904981f2f\",\"slotName\":\"production\"}",
-                "start_time": "2019-04-22T13:52:49.8891413Z",
-                "end_time": "2019-04-22T13:52:49.8891413Z",
-                "active": true
             }
         },
         {
