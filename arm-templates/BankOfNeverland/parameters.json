@@ -10,9 +10,6 @@
         },
         "components_bon_intakeservicespa_name": {
             "value": "bon-intakeservicespa"
-        },
-        "alertrules_Failure_Anomalies___bon_intakeservicespa_name": {
-            "value": "Failure Anomalies - bon-intakeservicespa"
         }
     }
 }
